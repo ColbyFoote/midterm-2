@@ -1,27 +1,34 @@
 <html>
+
 <head>
-<title>Amazon</title>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-  <script src="javascripts/app.js"></script>
+    <title>Amazon</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="javascripts/app.js"></script>
 </head>
+
 <body ng-app="amazon" ng-controller="MainCtrl">
-<div style="margin-left: 5em;">
-<h1> Shopping Interface </h1>
+    <div class="container-fluid; shadow p-4 mb-5 rounded bg-light border border-primary" style="margin-left: 5em; margin-right: 5em;">
+        <h1> Shopping Interface </h1>
+        <hr>
 
-<h1>Current Products</h1>
-<div ng-repeat="product in products | orderBy: 'Name'">
-<input type="checkbox" ng-click="addToCart(product)">  {{product.Name}} - price {{product.Price}}
-<img src="{{product.Image}}" width="300"></img>
-</div>
-<button ng-click="purchase()">
-Submit Purchase
-</button>
+        <h2>Current Products</h2>
+        <hr>
+        <div ng-repeat="product in products | orderBy: 'Name'">
+            <input type="checkbox" ng-click="addToCart(product)"> {{product.Name}} - price {{product.Price}}
+            <img src="{{product.Image}}" width="300"></img>
+        </div>
+        <button ng-click="purchase()">
+            Submit Purchase
+        </button>
 
-<h1>Shopping Cart</h1>
-<div ng-repeat="product in ordered | orderBy: 'Name'">
-{{product.Name}} - price {{product.Price}}
-<img src="{{product.Image}}" width="300"></img>
-</div>
+        <h2>Shopping Cart</h2>
+        <hr>
+        <div ng-repeat="product in ordered | orderBy: 'Name'">
+            {{product.Name}} - price {{product.Price}}
+            <img src="{{product.Image}}" width="300"></img>
+        </div>
 </body>
+
 </html>

@@ -1,28 +1,36 @@
 <html>
+
 <head>
-<title>Amazon</title>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <title>Amazon</title>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+        crossorigin="anonymous">
   <script src="javascripts/app.js"></script>
 </head>
-<body  ng-app="amazon" ng-controller="MainCtrl">
-<div style="margin-left: 5em;">
-<h1> Store Management Interface </h1>
-<form ng-submit="addProduct()">
-  Product Name
-  <input type="text" ng-model="productName"></input>
-  Price
-  <input type="text" ng-model="productPrice"></input>
-  Picture URL
-  <input type="text" ng-model="productImage"></input>
-    <button type="submit">Add Product</button>
-</form>
 
-<h1>Current Products</h1>
-<div ng-repeat="product in products | orderBy: 'Name'">
-<span class="glyphicon glyphicon-remove" ng-click="delete(product)"></span>
-  {{product.Name}} - price {{product.Price}} - ordered {{product.orders}} 
-  <img src="{{product.Image}}" width="300"></img>
-</div>
+<body ng-app="amazon" ng-controller="MainCtrl">
+  <div class="container-fluid; shadow p-4 mb-5 rounded bg-light border border-primary"style="margin-left: 5em; margin-right: 5em;">
+    <h1> Store Management Interface </h1>
+    <hr>
+    <form class="form-group" ng-submit="addProduct()">
+      Product Name
+      <input type="text" ng-model="productName"></input>
+      Price
+      <input type="text" ng-model="productPrice"></input>
+      Picture URL
+      <input type="text" ng-model="productImage"></input>
+      <button type="submit">Add Product</button>
+    </form>
+
+    <h2>Current Products</h2>
+    <hr>
+    <div ng-repeat="product in products | orderBy: 'Name'">
+      <span class="glyphicon glyphicon-remove" ng-click="delete(product)"></span> {{product.Name}} - price {{product.Price}} - ordered {{product.orders}}
+      <img src="{{product.Image}}" width="300"></img>
+    </div>
 </body>
+
 </html>
